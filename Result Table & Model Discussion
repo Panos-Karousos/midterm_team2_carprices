@@ -1,0 +1,49 @@
+| Model                         |     MAE |    RMSE |   R2 Score |
+|:------------------------------|--------:|--------:|-----------:|
+| Linear Regression             | 1209.12 | 1449.32 |   0.991662 |
+| Polynomial Regression (deg 2) | 3424.48 | 4564.78 |   0.917287 |
+| k-NN Regressor                | 2020.83 | 3252.4  |   0.95801  |
+| Decision Tree                 | 1958.33 | 3761.09 |   0.943848 |
+
+
+
+
+## 📊 Modeling & Analysis Results
+
+### 1. Commentary on Results
+*Best Model:** **Linear Regression** demonstrates the best generalization, yielding the lowest error (MAE ≈ 1,209 sales units) and an excellent R^2 \approx 99.17\%. This indicates that the relationship between economic indicators (inflation, interest rates, prices) and car sales is largely linear.
+*k-NN & Decision Trees:** These perform satisfactorily (R^2 > 0.94) but exhibit higher error rates compared to Linear Regression; this is likely because our dataset is relatively small (60 observations), whereas these models typically require a larger volume of data.
+*Polynomial Regression:** This model shows the lowest performance (R^2 \approx 0.917) and the highest RMSE, suggesting the onset of overfitting due to the complexity introduced by the second-degree terms.
+
+### 2. Discussion on the Bias–Variance Trade-off & Limitations
+
+#### ⚖️ a) Bias–Variance Trade-off
+*Linear Regression (Low Variance / High Bias Potential):**
+**Behavior: It exhibits low variance, meaning it is not easily affected by noise in the training data. Although it theoretically carries high bias—due to its assumption of a strictly linear relationship—this assumption holds true in our specific case, making it the most stable model.
+*Polynomial Regression & Decision Trees (High Variance / Low Bias):**
+ **Behavior: These models have the capacity to adapt to complex patterns (low bias). However, they exhibit high variance, which means they tend to memorize the noise present in the training data and fail to generalize effectively to new, unseen data (the test set).
+
+#### ⚠️ b) Model Limitations
+* Small Sample Size:** The dataset consists of only 60 rows (monthly data from 2019–2023). Models such as Decision Trees and k-NN are particularly sensitive to small sample sizes.
+* Temporal Component (Time Dependency): The data constitute a time series. Random splitting (`train_test_split`) does not account for temporal sequence, which can lead to overly optimistic estimates (data leakage). In real-world scenarios, a `TimeSeriesSplit` approach should be used.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
