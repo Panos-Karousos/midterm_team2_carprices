@@ -11,6 +11,7 @@
 2. Open it in Visual Studio Code with Python and Jupyter installed in the environment.
 3. Install these using: pip install pandas numpy matplotlib scikit-learn jupyter
 4. Open notebooks and then 01_data_exploration.ipynb and run the cells.
+5. To run the regression models, open the terminal in the main project folder and enter `python modeling_analysis.py`. This will display the results for all four models.
 
 ## Summary of Findings
 We first cleaned the dataset by removing one empty row and converting the prices, the sales figures and the rates into numbers. We then created three graphs to compare car prices, interest rates, inflation and sales.
