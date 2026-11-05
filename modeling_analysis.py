@@ -99,4 +99,4 @@ for model_name, model in models.items():
 
 # Display the results table
 comparison_df = pd.DataFrame(metrics_results)
-display(comparison_df)
+print(comparison_df)
